@@ -1,0 +1,109 @@
+@import '/src/style/variables';
+
+$default-shape-dim: 100%;
+$default-inherit-bg: $white;
+
+.shape-container {
+    --shape-dim: #{$default-shape-dim};
+    --inherit-bg: #{$default-inherit-bg};
+    position: relative;
+    width: var(--shape-dim);
+    height: var(--shape-dim);
+    overflow: visible;
+
+    @each $color-name, $color-value in $base-palette {
+        &.background-#{$color-name} {
+            .shape-round, .shape-curved {
+                background-color: $color-value;
+            }
+        }
+    }
+
+    &.position-bottom {
+        .shape-round {
+            border-radius: 50% 50% 50% 0;
+        }
+
+        .shape-curved {
+            bottom: calc(-1 * var(--shape-dim));
+            right: 0;
+            &::after {
+                border-radius: 50% 0 0 0;
+            }
+        }
+    }
+
+    &.position-top {
+        .shape-round {
+            order: 2;
+            border-radius: 50% 0 50% 50%;
+        }
+
+        .shape-curved {
+            order: 1;
+            top: calc(-1 * var(--shape-dim));
+            &::after {
+                border-radius: 0 0 50%;
+            }
+        }
+    }
+
+    &.position-left {
+        width: var(--shape-dim);
+        height: var(--shape-dim);
+
+        .shape-round {
+            order: 2;
+            border-radius: 0 50% 50% 50%;
+        }
+
+        .shape-curved {
+            order: 1;
+            left: calc(-1 * var(--shape-dim));
+            &::after {
+                border-radius: 0 50% 0 0;
+            }
+        }
+    }
+
+    &.position-right {
+        width: var(--shape-dim);
+        height: var(--shape-dim);
+
+        .shape-round {
+            border-radius: 50% 50% 0 50%;
+        }
+
+        .shape-curved {
+            right: calc(-1 * var(--shape-dim));
+            &::after {
+                border-radius: 0 0 0 50%;
+            }
+        }
+    }
+  
+    .shape-round {
+        position: relative;
+        width: var(--shape-dim);
+        height: var(--shape-dim);
+        z-index: 2;
+    }
+
+    .shape-curved {
+        width: var(--shape-dim);
+        height: var(--shape-dim);
+        position: absolute;
+            &::after {
+              content: '';
+              display: block;
+              position: absolute;
+              width: var(--shape-dim);
+              height: var(--shape-dim);
+              background-color:  var(--inherit-bg);
+            }
+    }
+}
+
+.fliped {
+    transform: scaleX(-1);
+}

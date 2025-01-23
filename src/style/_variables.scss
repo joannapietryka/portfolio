@@ -1,0 +1,25 @@
+// $base-palette: (
+//     'green': #96bedc,//#84537f,//#f9aca5,// #c5d4c9,
+//     'blue': #c3d1e6,//#f8f7b6, // #a3b6b7,
+//     'yellow': #fe793e,// #f8b166, // #f7b847,
+//     'orange':#fb4c1f, //#f8e191, //#f5630d,
+//     'red': #fcc6d0,//#f4836b, //#ee503a,
+//     'pink': #5975C0,//#fa833b, // #f68675,
+//     'navy':#D81159, //#f85d4e , //#264948
+// );
+
+$base-palette: (
+    'light-blue': #96bedc,
+    'blue': #5975C0,
+    'light-orange': #fe793e,
+    'orange':#fb4c1f,
+    'light-pink': #fcc6d0,
+    'pink': #D81159,
+);
+
+$darkFont: #293039;
+$white: #ffffff;
+
+html, body {
+    background-color: $white;
+}

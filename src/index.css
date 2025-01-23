@@ -1,0 +1,7 @@
+@import "./style/_variables.scss";
+@import "./style/_fonts.scss";
+@import "./style/global.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

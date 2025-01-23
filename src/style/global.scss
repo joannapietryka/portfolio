@@ -1,0 +1,28 @@
+@import './variables';
+
+@layer base {
+    html, body {
+        @apply h-full w-full m-0 p-0;
+    }
+
+    section {
+        @apply grid w-full overflow-hidden p-2;
+        min-height: calc(100vh - 5rem);
+        background-color: $white;
+
+        > div {
+            @apply max-w-screen-2xl mx-auto;
+        }
+
+        div {
+            @apply grid box-border;
+        }
+    }
+
+    footer, footer div {
+        @apply grid;
+    }
+  }
+
+
+
