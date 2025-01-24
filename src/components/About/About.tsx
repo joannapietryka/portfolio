@@ -4,6 +4,7 @@ import profile from "../../assets/photos/profile.png";
 import Icons from "../Icons/Icons";
 import { useState } from "react";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/outline";
+import { COLORS } from "../../config/globals";
 
 const About: React.FC = () => {
     type SectionId = "beginning" | "recently" | "softSkills" | null;
@@ -16,8 +17,8 @@ const About: React.FC = () => {
 
     return (
         <motion.section
-            initial={{ background: "#ffffff" }}
-            whileInView={{ background: "#D81159" }}
+            initial={{ background: COLORS.white }}
+            whileInView={{ background: COLORS.pink }}
             transition={{ duration: 4, delay: 2 }}
             id='about'
             className='justify-strech'>
@@ -46,7 +47,7 @@ const About: React.FC = () => {
                                 position='bottom'
                                 flipped={true}
                                 size='150px'
-                                text='some'
+                                //text='some'
                             />
                         </div>
                     </div>
@@ -59,15 +60,7 @@ const About: React.FC = () => {
                         <ChevronDoubleDownIcon className='h-8 w-8 mt-2 ml-2 animate-pulse'></ChevronDoubleDownIcon>
                     </div>
                 </div>
-                <div className='row-span-2 col-start-1 row-start-7 bg-white rounded-md'>
-                    <div
-                        className='place-items-center grid-flow-col justify-center cursor-pointer'
-                        onClick={() => handleSetVisibility("recently")}>
-                        <h2>Recently </h2>
-                        <ChevronDoubleDownIcon className='h-8 w-8 mt-2 ml-2 animate-pulse'></ChevronDoubleDownIcon>
-                    </div>
-                </div>
-                <div className='row-span-4 col-start-2 row-start-8 bg-white rounded-md place-items-center'>
+                <div className='row-span-2 col-start-1 row-start-7 bg-white rounded-md z-30'>
                     <div
                         className='place-items-center grid-flow-col justify-center cursor-pointer'
                         onClick={() => handleSetVisibility("beginning")}>
@@ -76,6 +69,14 @@ const About: React.FC = () => {
                         <ChevronDoubleDownIcon className='h-8 w-8 mt-2 ml-2 animate-pulse'></ChevronDoubleDownIcon>
                     </div>
                     <p>Why I'm here</p>
+                </div>
+                <div className='row-span-4 col-start-2 row-start-8 bg-white rounded-md place-items-center'>
+                    <div
+                        className='place-items-center grid-flow-col justify-center cursor-pointer'
+                        onClick={() => handleSetVisibility("recently")}>
+                        <h2>Recently </h2>
+                        <ChevronDoubleDownIcon className='h-8 w-8 mt-2 ml-2 animate-pulse'></ChevronDoubleDownIcon>
+                    </div>
                 </div>
                 <div className='row-span-7 col-start-3 row-start-5 bg-light-blue rounded-md items-end'>
                     <img
@@ -89,43 +90,6 @@ const About: React.FC = () => {
                 <div className='grid-cols-3 grid-rows-11 gap-4 p-3 grid-flow-row auto-rows-min absolute w-full h-full top-0 left-0 z-20 pointer-events-none'>
                     <div className='row-span-4 col-start-1 row-start-8'>
                         <AnimatePresence initial={false}>
-                            {visibleSection === "recently" && (
-                                <motion.div
-                                    initial={{
-                                        height: 0,
-                                        opacity: 0,
-                                        y: "100%",
-                                    }}
-                                    animate={{
-                                        height: "auto",
-                                        opacity: 1,
-                                        y: "0%",
-                                    }}
-                                    transition={{
-                                        duration: 0.5,
-                                        ease: "easeInOut",
-                                    }}
-                                    exit={{ height: 0, opacity: 0 }}
-                                    className='bg-light-pink rounded-md'>
-                                    <p>
-                                        As for many, my life changed during the
-                                        Covid era. I started working remotely,
-                                        and to avoid spending long and lonely
-                                        weeks in my studio flat in Krakow, I
-                                        decided to explore the Canary Islands. I
-                                        found more sun there, but also... my
-                                        French partner. Long story short, I
-                                        recently moved to Bordeaux, where I am
-                                        intensively learning French, looking for
-                                        new job opportunities, and making new
-                                        friends.
-                                    </p>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </div>
-                    <div className='row-span-4 col-start-2 row-start-8'>
-                        <AnimatePresence initial={false}>
                             {visibleSection === "beginning" && (
                                 <motion.div
                                     initial={{ height: 0 }}
@@ -133,7 +97,8 @@ const About: React.FC = () => {
                                     transition={{
                                         duration: 0.5,
                                         ease: "easeInOut",
-                                    }}>
+                                    }}
+                                    className='bg-white rounded-md p-4 items-center'>
                                     <p>
                                         I began working in IT in 2015, but at
                                         first, I wasn't really into coding.
@@ -149,6 +114,40 @@ const About: React.FC = () => {
                                         tutorials. (To be honest, I still
                                         do—yes, there's always something new
                                         coming up in frontend development.)
+                                    </p>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+                    <div className='row-span-4 col-start-2 row-start-8'>
+                        <AnimatePresence initial={false}>
+                            {visibleSection === "recently" && (
+                                <motion.div
+                                    initial={{
+                                        height: 0,
+                                        opacity: 0,
+                                    }}
+                                    animate={{
+                                        height: "auto",
+                                        opacity: 1,
+                                    }}
+                                    transition={{
+                                        duration: 0.5,
+                                    }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    className='bg-white rounded-md p-4 items-center'>
+                                    <p>
+                                        As for many, my life changed during the
+                                        Covid era. I started working remotely,
+                                        and to avoid spending long and lonely
+                                        weeks in my studio flat in Krakow, I
+                                        decided to explore the Canary Islands. I
+                                        found more sun there, but also... my
+                                        French partner. Long story short, I
+                                        recently moved to Bordeaux, where I am
+                                        intensively learning French, looking for
+                                        new job opportunities, and making new
+                                        friends.
                                     </p>
                                 </motion.div>
                             )}

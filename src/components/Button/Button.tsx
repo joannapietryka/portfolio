@@ -35,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({
         }`;
 
     return (
-        <div className={`grid pt-3 ${align}`}>
+        <div className={`grid pt-3 ${align ? align : ""}`}>
             {link ? (
                 <Link to={link} spy={true} smooth={true} duration={500}>
                     <button className={buttonClass}>{buttonContent}</button>

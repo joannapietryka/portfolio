@@ -73,8 +73,8 @@ const ContactForm: React.FC = () => {
                     : "pointer-events-auto"
             }
             onSubmit={handleSubmit(onSubmit)}>
-            <div className='grid-cols-4 gap-x-4'>
-                <div className='input-wrapper col-span-2'>
+            <div className='grid-cols-1 md:grid-cols-4 md:gap-x-4'>
+                <div className='input-wrapper md:col-span-2'>
                     <label htmlFor='name'>Your name</label>
                     <input
                         type='text'
@@ -98,7 +98,7 @@ const ContactForm: React.FC = () => {
                         <span className='error'>{errors.name.message}</span>
                     )}
                 </div>
-                <div className='input-wrapper col-span-2 col-start-3'>
+                <div className='input-wrapper md:col-span-2 md:col-start-3'>
                     <label htmlFor='name'>Your email</label>
                     <input
                         type='email'
@@ -118,7 +118,7 @@ const ContactForm: React.FC = () => {
                         <span className='error'>{errors.email.message}</span>
                     )}
                 </div>
-                <div className='input-wrapper col-span-3 row-start-2'>
+                <div className='input-wrapper md:col-span-3 md:row-start-2'>
                     <label htmlFor='name'>Your subject</label>
                     <input
                         type='text'
@@ -142,7 +142,7 @@ const ContactForm: React.FC = () => {
                         <span className='error'>{errors.subject.message}</span>
                     )}
                 </div>
-                <div className='textarea-wrapper col-span-4 row-start-3'>
+                <div className='textarea-wrapper md:col-span-4 rmd:ow-start-3'>
                     <label htmlFor='name'>Say what is your topic</label>
                     <textarea
                         rows={3}
@@ -163,7 +163,7 @@ const ContactForm: React.FC = () => {
                         <span className='error'>{errors.message.message}</span>
                     )}
                 </div>
-                <div className='row-start-4 col-start-4 pt-3'>
+                <div className='md:row-start-4 md:col-start-4 pt-3'>
                     <Button
                         text='send it'
                         type='submit'

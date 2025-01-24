@@ -3,14 +3,15 @@
 import { motion } from "framer-motion";
 import Shape from "../Shape/Shape";
 import { useState } from "react";
+import { COLORS } from "../../config/globals";
 
 const Work: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     return (
         <motion.section
-            initial={{ background: "#fff" }}
-            whileInView={{ background: "#5975C0" }}
+            initial={{ background: COLORS.white }}
+            whileInView={{ background: COLORS.blue }}
             transition={{ duration: 4 }}
             id='work'
             className='justify-strech'>

@@ -6,12 +6,12 @@
     }
 
     section {
-        @apply grid w-full overflow-hidden p-2;
+        @apply grid w-full overflow-hidden;
         min-height: calc(100vh - 5rem);
         background-color: $white;
 
         > div {
-            @apply max-w-screen-2xl mx-auto;
+            @apply max-w-screen-2xl mx-auto p-2;
         }
 
         div {
