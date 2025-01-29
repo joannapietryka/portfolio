@@ -1,7 +1,7 @@
-import Shape from "../Shape/Shape";
+import Shape from "../ui/Shape/Shape";
 import { motion, AnimatePresence } from "framer-motion";
 import profile from "../../assets/photos/profile.png";
-import Icons from "../Icons/Icons";
+import Icons from "../ui/Icons";
 import { useState } from "react";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/outline";
 import { COLORS } from "../../config/globals";
@@ -22,18 +22,18 @@ const About: React.FC = () => {
             transition={{ duration: 4, delay: 2 }}
             id='about'
             className='justify-strech'>
-            <div className='grid-cols-3 grid-rows-11 gap-4 w-full p-3 grid-flow-row auto-rows-min relative'>
-                <div className='col-span-3 row-span-2 text-center'>
+            <div className='w-full p-3 relative md:grid-cols-3 md:grid-rows-11 gap-4 md:grid-flow-row md:auto-rows-min'>
+                <div className='text-center md:col-span-3 md:row-span-2'>
                     <motion.h2 className='text-[16vw] text-white'>
                         about me
                     </motion.h2>
                 </div>
-                <div className='row-span-4 row-start-3 bg-blue rounded-md'>
+                <div className='md:row-span-4 md:row-start-3 bg-blue rounded-md'>
                     <div className='grid-cols-6 grid-rows-4 place-items-center w-full h-full p-3'>
                         <Icons />
                     </div>
                 </div>
-                <div className='row-span-5 row-start-3 bg-white rounded-md place-items-center relative rounded-tr-[75px]'>
+                <div className='md:row-span-5 md:row-start-3 bg-white rounded-md place-items-center relative rounded-tr-[75px]'>
                     <div className='grid-flow-col h-full'>
                         <p className='text-xl p-5 shape-outside z-10'>
                             Thanks for finding a moment to read a few words
@@ -52,7 +52,7 @@ const About: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className='row-span-2 row-start-3 bg-white rounded-md'>
+                <div className='md:row-span-2 md:row-start-3 bg-white rounded-md'>
                     <div
                         className='place-items-center grid-flow-col justify-center cursor-pointer'
                         onClick={() => handleSetVisibility("softSkills")}>
@@ -60,7 +60,7 @@ const About: React.FC = () => {
                         <ChevronDoubleDownIcon className='h-8 w-8 mt-2 ml-2 animate-pulse'></ChevronDoubleDownIcon>
                     </div>
                 </div>
-                <div className='row-span-2 col-start-1 row-start-7 bg-white rounded-md z-30'>
+                <div className='md:row-span-2 md:col-start-1 md:row-start-7 bg-white rounded-md z-30'>
                     <div
                         className='place-items-center grid-flow-col justify-center cursor-pointer'
                         onClick={() => handleSetVisibility("beginning")}>
@@ -70,7 +70,7 @@ const About: React.FC = () => {
                     </div>
                     <p>Why I'm here</p>
                 </div>
-                <div className='row-span-4 col-start-2 row-start-8 bg-white rounded-md place-items-center'>
+                <div className='md:row-span-4 md:col-start-2 md:row-start-8 bg-white rounded-md place-items-center'>
                     <div
                         className='place-items-center grid-flow-col justify-center cursor-pointer'
                         onClick={() => handleSetVisibility("recently")}>
@@ -78,16 +78,16 @@ const About: React.FC = () => {
                         <ChevronDoubleDownIcon className='h-8 w-8 mt-2 ml-2 animate-pulse'></ChevronDoubleDownIcon>
                     </div>
                 </div>
-                <div className='row-span-7 col-start-3 row-start-5 bg-light-blue rounded-md items-end'>
+                <div className='bg-light-blue rounded-md items-end md:row-span-7 md:col-start-3 md:row-start-5'>
                     <img
                         className='cover'
                         src={profile}
                         alt='Joanna Pietryka picture'
                     />
                 </div>
-                <div className='row-span-3 row-start-9 bg-shapes bg-cover rounded-md place-items-center'></div>
+                <div className='bg-shapes bg-cover rounded-md place-items-center md:row-span-3 md:row-start-9'></div>
 
-                <div className='grid-cols-3 grid-rows-11 gap-4 p-3 grid-flow-row auto-rows-min absolute w-full h-full top-0 left-0 z-20 pointer-events-none'>
+                <div className='gap-4 p-3 grid-flow-row auto-rows-min absolute w-full h-full top-0 left-0 z-20 pointer-events-none md:grid-cols-3 md:grid-rows-11'>
                     <div className='row-span-4 col-start-1 row-start-8'>
                         <AnimatePresence initial={false}>
                             {visibleSection === "beginning" && (
@@ -119,7 +119,7 @@ const About: React.FC = () => {
                             )}
                         </AnimatePresence>
                     </div>
-                    <div className='row-span-4 col-start-2 row-start-8'>
+                    <div className='md:row-span-4 md:col-start-2 md:row-start-8'>
                         <AnimatePresence initial={false}>
                             {visibleSection === "recently" && (
                                 <motion.div
@@ -153,7 +153,7 @@ const About: React.FC = () => {
                             )}
                         </AnimatePresence>
                     </div>
-                    <div className='row-span-9 col-start-3 row-start-3'>
+                    <div className='md:row-span-9 md:col-start-3 md:row-start-3'>
                         <AnimatePresence initial={false}>
                             {visibleSection === "softSkills" && (
                                 <motion.div

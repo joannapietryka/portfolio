@@ -5,6 +5,8 @@
         @apply grid text-xs font-light
     }
     .input-wrapper {
+        @apply w-full my-4 relative;
+
         input {
             @apply grid w-full bg-white px-3 py-1.5 mb-2 text-base text-gray-900 border-b-2 border-b-orange placeholder:text-gray-300  focus:border-b-light-orange focus:outline-none md:text-sm/6 appearance-none;
 
@@ -17,10 +19,6 @@
     textarea {
         @apply grid w-full px-3 py-1.5 mb-2 text-base text-gray-900 border-b-2 border-b-orange placeholder:text-gray-300  focus:border-b-light-orange focus:outline-none  md:text-sm/6 resize-none appearance-none
     }
-
-    .input-wrapper {
-        @apply w-full md:w-1/2 my-4 relative
-    } 
 
     .textarea-wrapper {
         @apply grid my-4 relative

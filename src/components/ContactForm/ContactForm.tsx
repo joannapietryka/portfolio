@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import "./ContectForm.scss";
-import Button from "../Button/Button";
+import Button from "../ui/Button";
 
 interface Data {
     name: string;

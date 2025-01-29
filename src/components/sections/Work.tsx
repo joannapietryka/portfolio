@@ -1,7 +1,7 @@
 //import { CodeBracketIcon } from "@heroicons/react/24/outline";
 // import Card from "../Card/Card";
 import { motion } from "framer-motion";
-import Shape from "../Shape/Shape";
+import Shape from "../ui/Shape/Shape";
 import { useState } from "react";
 import { COLORS } from "../../config/globals";
 
@@ -15,12 +15,12 @@ const Work: React.FC = () => {
             transition={{ duration: 4 }}
             id='work'
             className='justify-strech'>
-            <div className='grid-cols-7 grid-rows-7 gap-4 w-full p-3 grid-flow-row auto-rows-min relative'>
-                <div className='col-span-4 row-span-4 bg-white rounded-md'>
+            <div className='md:grid-cols-7 md:grid-rows-7 gap-4 w-full p-3 md:grid-flow-row md:auto-rows-min relative'>
+                <div className='md:col-span-4 md:row-span-4 bg-white rounded-md'>
                     <h3>Experience</h3>
                     <p></p>
                 </div>
-                <div className='col-span-2 row-span-7 col-start-5 bg-white rounded-md p-4'>
+                <div className='md:col-span-2 md:row-span-7 md:col-start-5 bg-white rounded-md p-4'>
                     <h3>
                         Technologies
                         <br /> and Tools
@@ -69,14 +69,14 @@ const Work: React.FC = () => {
                         </p>
                     </div>
                 </div>
-                <div className='col-span-2 row-span-3 col-start-1 row-start-5 bg-light-pink rounded-md p-4'>
-                    <p className='text-white text-[5vw] leading-none text-right'>
+                <div className='md:col-span-2 md:row-span-3 md:col-start-1 md:row-start-5 bg-light-pink rounded-md p-4'>
+                    <p className='text-white text-[5vw] leading-none text-right align-bottom'>
                         <span className='text-[3vw]'>I'm</span>
                         <br />
                         Frontend Developer
                     </p>
                 </div>
-                <div className='col-span-2 row-span-3 col-start-3 row-start-5 bg-white rounded-md p-4'>
+                <div className='md:col-span-2 md:row-span-3 md:col-start-3 md:row-start-5 bg-white rounded-md p-4'>
                     <h3>Clients</h3>
                     <p>
                         While working at an international advertising agency, I
@@ -85,7 +85,7 @@ const Work: React.FC = () => {
                         Paribas, Mercedes-Benz, and Mazda.
                     </p>
                 </div>
-                <div className='row-span-7 col-start-7 row-start-1 align-middle'>
+                <div className='md:row-span-7 md:col-start-7 md:row-start-1 align-middle'>
                     <h2
                         className='text-white text-[20vh] leading-none'
                         style={{

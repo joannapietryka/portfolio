@@ -1,9 +1,9 @@
-import About from "./components/About/About";
-import Contact from "./components/Contact/Contact";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import Hello from "./components/Hello/Hello";
-import Work from "./components/Work/Work";
+import About from "./components/sections/About";
+import Contact from "./components/sections/Contact";
+import Footer from "./components/layout/Footer";
+import Header from "./components/layout/Header";
+import Hello from "./components/sections/Hello";
+import Work from "./components/sections/Work";
 import { useEffect } from "react";
 
 const App: React.FC = () => {

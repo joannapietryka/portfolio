@@ -1,4 +1,4 @@
-import Shape from "../Shape/Shape";
+import Shape from "../ui/Shape/Shape";
 
 const colors = [
     "light-blue",

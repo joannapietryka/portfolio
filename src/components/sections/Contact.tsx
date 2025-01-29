@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
                     transform: "translateX(50%)",
                 }}
                 transition={{ duration: 4, delay: 2 }}></motion.div>
-            <div className='items-center relative z-10'>
+            <div className='items-center relative z-10 w-full'>
                 <div className='self-end'>
                     <h2 className='text-white text-[5vw]'>
                         Let's work together

@@ -50,6 +50,10 @@ export default {
       'technologies': "url('../src/assets/photos/technologies.jpg')",
       'typing': "url('../src/assets/photos/typing.gif')",
     },
+    minHeight: {
+      'calc-vh-2rem': 'calc(100vh - 2rem)',
+      'calc-vh-5rem': 'calc(100vh - 5rem)',
+    },
   },
   plugins: [],
 }

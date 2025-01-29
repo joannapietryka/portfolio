@@ -6,9 +6,8 @@
     }
 
     section {
-        @apply grid w-full overflow-hidden;
-        min-height: calc(100vh - 5rem);
-        background-color: $white;
+        @apply grid w-full overflow-hidden bg-white min-h-calc-vh-2rem md:min-h-calc-vh-5rem;
+        min-height: calc(100dvh - 5rem);
 
         > div {
             @apply max-w-screen-2xl mx-auto p-2;
