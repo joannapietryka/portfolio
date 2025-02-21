@@ -51,12 +51,14 @@ const Shape: React.FC<ShapeProps> = ({
                 className={`shape-round justify-center content-center ${
                     imgString ? `${bg} bg-cover` : ""
                 }`}>
-                <p
-                    className={`text-white ${
-                        flipped ? "fliped" : ""
-                    } hover:cursor-pointer`}>
-                    {text}
-                </p>
+                {text && (
+                    <p
+                        className={`text-white ${
+                            flipped ? "fliped" : ""
+                        } hover:cursor-pointer`}>
+                        {text}
+                    </p>
+                )}
             </div>
             <div className='shape-curved'></div>
         </motion.div>

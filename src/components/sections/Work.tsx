@@ -1,12 +1,13 @@
 //import { CodeBracketIcon } from "@heroicons/react/24/outline";
-// import Card from "../Card/Card";
 import { motion } from "framer-motion";
 import Shape from "../ui/Shape/Shape";
 import { useState } from "react";
 import { COLORS } from "../../config/globals";
+import useMobile from "../../hooks/useMobile";
 
 const Work: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const isMobile = useMobile();
 
     return (
         <motion.section
@@ -15,22 +16,40 @@ const Work: React.FC = () => {
             transition={{ duration: 4 }}
             id='work'
             className='justify-strech'>
-            <div className='md:grid-cols-7 md:grid-rows-7 gap-4 w-full p-3 md:grid-flow-row md:auto-rows-min relative'>
-                <div className='md:col-span-4 md:row-span-4 bg-white rounded-md'>
-                    <h3>Experience</h3>
-                    <p></p>
+            <div className='lg:grid-cols-7 lg:grid-rows-7 gap-4 w-full p-3 grid-flow-row lg:auto-rows-min relative'>
+                <div className='lg:col-span-4 lg:row-span-4 lg:grid-flow-col bg-white '>
+                    <div className='p-4'>
+                        <h3>Experience</h3>
+                        <p className='text-xl mt-4'>
+                            I've spent most of my career working at an
+                            advertising agency, where constantly changing
+                            projects and client requests helped me become
+                            adaptable and great at problem-solving. <br />
+                            Over thh years, I've worked on both small and big
+                            projects for well-known brands. Since every project
+                            had different needs, I got to work with a variety of
+                            frontend technologies. I've used OOP, React.js, and
+                            Vue.js, but React.js (especially with Tailwind CSS)
+                            has always been my favorite.
+                        </p>
+                    </div>
+                    <div className='lg:grid-flow-col justify-end'>
+                        <div className='bg-light-blue h-full w-[20px]'></div>
+                        <div className='bg-pink h-full w-[30px]'></div>
+                        <div className='bg-light-orange h-full w-[40px]'></div>
+                    </div>
                 </div>
-                <div className='md:col-span-2 md:row-span-7 md:col-start-5 bg-white rounded-md p-4'>
+                <div className='lg:col-span-2 lg:row-span-7 lg:col-start-5 bg-white p-4'>
                     <h3>
                         Technologies
                         <br /> and Tools
                     </h3>
-                    <ul className='uppercase'>
+                    <ul className='uppercase mt-4'>
                         <li>HTML5</li>
                         <li>CSS3 / SASS / RWD</li>
                         <li>BOOTSTRAP / TAILWIND.CSS</li>
                         <li>JAVASCRIPT / ES6 / TYPESCRIPT</li>
-                        <li>REACT.js / REDUX / REACT HOOKS</li>
+                        <li>REACT.js / REDUX TOOLKIT / REACT HOOKS</li>
                         <li>NEXT.JS</li>
                         <li>MOCHA & CHAI</li>
                         <li>GIT / REST API / DOCKER</li>
@@ -40,8 +59,8 @@ const Work: React.FC = () => {
                     </ul>
                     <div className='justify-self-end'>
                         {!isVisible ? (
-                            <div
-                                className='grid-cols-2 w-[120px] h-min cursor-pointer'
+                            <motion.div
+                                className='grid-cols-2 w-[120px] h-[120px] cursor-pointer'
                                 onClick={() => setIsVisible(!isVisible)}>
                                 <Shape
                                     color='pink'
@@ -56,60 +75,55 @@ const Work: React.FC = () => {
                                     text='me'
                                     size='60px'
                                 />
-                            </div>
+                            </motion.div>
                         ) : (
-                            <div className='bg-pink h-[120px] w-[120px]'>
-                                <p className='text-white text-m'>
+                            <motion.div
+                                initial={{ scaleY: 0, opacity: 0 }}
+                                animate={{
+                                    scaleY: 1,
+                                    opacity: 1,
+                                }}
+                                transition={{
+                                    duration: 0.5,
+                                    ease: "easeInOut",
+                                }}
+                                className='bg-pink h-[120px] w-[120px]'>
+                                <p className='text-white text-m self-end'>
                                     React <br /> & Tailwind
                                 </p>
-                            </div>
+                            </motion.div>
                         )}
                         <p className='text-xs relative z-10'>
                             My heart goes to...
                         </p>
                     </div>
                 </div>
-                <div className='md:col-span-2 md:row-span-3 md:col-start-1 md:row-start-5 bg-light-pink rounded-md p-4'>
-                    <p className='text-white text-[5vw] leading-none text-right align-bottom'>
-                        <span className='text-[3vw]'>I'm</span>
+                <div className='lg:col-span-2 lg:row-span-3 lg:col-start-1 lg:row-start-5 bg-light-pink p-4'>
+                    <p className='text-white text-[5vw] leading-none text-right self-end xl:text-[4vw]'>
+                        <span className='text-[3vw] xl:text-[2vw]'>I'm</span>
                         <br />
                         Frontend Developer
                     </p>
                 </div>
-                <div className='md:col-span-2 md:row-span-3 md:col-start-3 md:row-start-5 bg-white rounded-md p-4'>
+                <div className='lg:col-span-2 lg:row-span-3 lg:col-start-3 lg:row-start-5 bg-white p-4'>
                     <h3>Clients</h3>
-                    <p>
+                    <p className='text-xl mt-4'>
                         While working at an international advertising agency, I
                         developed code for renowned brands such as Ferrero
                         Rocher, Raffaello, Cheetos, Vuse, United Rentals, BNP
                         Paribas, Mercedes-Benz, and Mazda.
                     </p>
                 </div>
-                <div className='md:row-span-7 md:col-start-7 md:row-start-1 align-middle'>
+                <div className='lg:row-span-7 lg:col-start-7 row-start-1 align-middle'>
                     <h2
-                        className='text-white text-[20vh] leading-none'
+                        className='text-white text-[16vh] lg:text-[20vh] leading-none'
                         style={{
-                            writingMode: "vertical-rl",
+                            ...(isMobile ? {} : { writingMode: "vertical-rl" }),
                         }}>
                         Work
                     </h2>
                 </div>
             </div>
-            {/* <div className='grid-cols-3 grid-rows-5 gap-4 justify-self-center p-4 w-full'>
-              
-                <div className='row-span-4 col-start-1 row-start-2 bg-white '>
-                    <span className='text-white text-2xl'>Experience</span>
-                    <CodeBracketIcon className='fill-white h-8 pl-2' />
-                </div>
-                <div className='row-span-4 col-start-2 row-start-2 bg-white'>
-                    <span className='text-white text-2xl'>Technologies</span>
-                    <CodeBracketIcon className='fill-white h-8 pl-2' />
-                </div>
-                <div className='row-span-4 col-start-3 row-start-1 bg-white'>
-                    <span className='text-white text-2xl'>Education</span>
-                    <CodeBracketIcon className='fill-white h-8 pl-2' />
-                </div>
-            </div> */}
         </motion.section>
     );
 };

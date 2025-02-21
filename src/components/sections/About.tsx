@@ -5,8 +5,11 @@ import Icons from "../ui/Icons";
 import { useState } from "react";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/outline";
 import { COLORS } from "../../config/globals";
+import useMobile from "../../hooks/useMobile";
 
 const About: React.FC = () => {
+    const isMobile = useMobile();
+
     type SectionId = "beginning" | "recently" | "softSkills" | null;
 
     const [visibleSection, setVisibleSection] = useState<SectionId>(null);
@@ -22,83 +25,116 @@ const About: React.FC = () => {
             transition={{ duration: 4, delay: 2 }}
             id='about'
             className='justify-strech'>
-            <div className='w-full p-3 relative md:grid-cols-3 md:grid-rows-11 gap-4 md:grid-flow-row md:auto-rows-min'>
-                <div className='text-center md:col-span-3 md:row-span-2'>
+            <div className='w-full p-3 relative lg:grid-cols-3 lg:grid-rows-11 gap-4 lg:grid-flow-row lg:auto-rows-min'>
+                <div className='text-center lg:col-span-3 lg:row-span-2'>
                     <motion.h2 className='text-[16vw] text-white'>
                         about me
                     </motion.h2>
                 </div>
-                <div className='md:row-span-4 md:row-start-3 bg-blue rounded-md'>
+                <div
+                    className={`lg:row-span-4 lg:row-start-3 bg-blue ${
+                        isMobile && "order-3"
+                    }`}>
                     <div className='grid-cols-6 grid-rows-4 place-items-center w-full h-full p-3'>
                         <Icons />
                     </div>
                 </div>
-                <div className='md:row-span-5 md:row-start-3 bg-white rounded-md place-items-center relative rounded-tr-[75px]'>
+                <motion.div
+                    initial={{ scaleY: 1, opacity: 1 }}
+                    animate={{
+                        scaleY: visibleSection === "recently" ? 0 : 1,
+                        opacity: visibleSection === "recently" ? 0 : 1,
+                    }}
+                    transition={{
+                        duration: 0.5,
+                        ease: "easeInOut",
+                    }}
+                    className={`lg:row-span-5 lg:row-start-4 bg-white place-items-center relative rounded-tr-[75px] overflow-hidden ${
+                        isMobile && "order-1"
+                    }`}>
                     <div className='grid-flow-col h-full'>
-                        <p className='text-xl p-5 shape-outside z-10'>
-                            Thanks for finding a moment to read a few words
-                            about me. As a professional, I created this website
-                            mainly to present my frontend skills but also my
-                            personal story and areas of interest.
-                        </p>
-                        <div className='grid-cols-1 w-[150px] h-min relative top-0 right-0 z-0'>
+                        <div className='p-5 z-10 items-end'>
+                            <h3>Welcome!</h3>
+                            <p className='text-xl self-end w-[140%]'>
+                                Thanks for finding a moment to read a few words
+                                about me. As a professional, I created this
+                                website mainly to present my frontend skills but
+                                also my personal story and areas of interest.
+                            </p>
+                        </div>
+                        <div
+                            className={`grid-cols-1 h-min relative top-0 right-0 z-0 shape-outside-circle ${
+                                isMobile ? "w-[100px]" : "w-[150px]"
+                            }`}>
                             <Shape
                                 color='light-pink'
                                 position='bottom'
                                 flipped={true}
-                                size='150px'
-                                //text='some'
+                                size={isMobile ? "100px" : "150px"}
                             />
                         </div>
                     </div>
-                </div>
-                <div className='md:row-span-2 md:row-start-3 bg-white rounded-md'>
+                </motion.div>
+                <div
+                    className={`lg:row-span-2 lg:row-start-3 bg-white p-4 ${
+                        isMobile && "order-5"
+                    }`}>
                     <div
                         className='place-items-center grid-flow-col justify-center cursor-pointer'
                         onClick={() => handleSetVisibility("softSkills")}>
-                        <h2>Soft skills</h2>
-                        <ChevronDoubleDownIcon className='h-8 w-8 mt-2 ml-2 animate-pulse'></ChevronDoubleDownIcon>
+                        <h3>Soft skills</h3>
+                        <ChevronDoubleDownIcon className='h-6 w-6 ml-2 animate-pulse'></ChevronDoubleDownIcon>
                     </div>
                 </div>
-                <div className='md:row-span-2 md:col-start-1 md:row-start-7 bg-white rounded-md z-30'>
+                <div
+                    className={`lg:row-span-2 lg:col-start-1 lg:row-start-7 bg-white z-30 justify-center p-4 ${
+                        isMobile && "order-2"
+                    }`}>
                     <div
-                        className='place-items-center grid-flow-col justify-center cursor-pointer'
+                        className='place-items-center grid-flow-col cursor-pointer'
                         onClick={() => handleSetVisibility("beginning")}>
-                        <h2>Beginning</h2>
+                        <h3>Beginning</h3>
 
-                        <ChevronDoubleDownIcon className='h-8 w-8 mt-2 ml-2 animate-pulse'></ChevronDoubleDownIcon>
+                        <ChevronDoubleDownIcon className='h-6 w-6 ml-2 animate-pulse'></ChevronDoubleDownIcon>
                     </div>
                     <p>Why I'm here</p>
                 </div>
-                <div className='md:row-span-4 md:col-start-2 md:row-start-8 bg-white rounded-md place-items-center'>
+                <div
+                    className={`lg:row-span-2 lg:col-start-2 lg:row-start-9 bg-white place-items-center p-4 ${
+                        isMobile && "order-4"
+                    }`}>
                     <div
-                        className='place-items-center grid-flow-col justify-center cursor-pointer'
+                        className='place-items-center grid-flow-col cursor-pointer'
                         onClick={() => handleSetVisibility("recently")}>
-                        <h2>Recently </h2>
-                        <ChevronDoubleDownIcon className='h-8 w-8 mt-2 ml-2 animate-pulse'></ChevronDoubleDownIcon>
+                        <h3>Recently </h3>
+                        <ChevronDoubleDownIcon className='h-6 w-6 ml-2 animate-pulse'></ChevronDoubleDownIcon>
                     </div>
                 </div>
-                <div className='bg-light-blue rounded-md items-end md:row-span-7 md:col-start-3 md:row-start-5'>
+                <div
+                    className={`bg-light-blue items-end lg:row-span-7 lg:col-start-3 lg:row-start-5 ${
+                        isMobile && "order-6"
+                    }`}>
                     <img
                         className='cover'
                         src={profile}
                         alt='Joanna Pietryka picture'
                     />
                 </div>
-                <div className='bg-shapes bg-cover rounded-md place-items-center md:row-span-3 md:row-start-9'></div>
+                <div className='bg-shapes bg-cover place-items-center lg:row-span-3 lg:row-start-9'></div>
 
-                <div className='gap-4 p-3 grid-flow-row auto-rows-min absolute w-full h-full top-0 left-0 z-20 pointer-events-none md:grid-cols-3 md:grid-rows-11'>
+                <div className='gap-4 p-3 grid-flow-row auto-rows-min absolute w-full h-full top-0 left-0 z-20 pointer-events-none lg:grid-cols-3 lg:grid-rows-11'>
                     <div className='row-span-4 col-start-1 row-start-8'>
                         <AnimatePresence initial={false}>
                             {visibleSection === "beginning" && (
                                 <motion.div
-                                    initial={{ height: 0 }}
-                                    animate={{ height: "100%" }}
+                                    initial={{ scaleY: 0, opacity: 0 }}
+                                    animate={{ scaleY: 1, opacity: 1 }}
+                                    exit={{ scaleY: 0, opacity: 0 }}
                                     transition={{
                                         duration: 0.5,
                                         ease: "easeInOut",
                                     }}
-                                    className='bg-white rounded-md p-4 items-center'>
+                                    className='bg-white p-4 items-center'>
                                     <p>
                                         I began working in IT in 2015, but at
                                         first, I wasn't really into coding.
@@ -119,7 +155,7 @@ const About: React.FC = () => {
                             )}
                         </AnimatePresence>
                     </div>
-                    <div className='md:row-span-4 md:col-start-2 md:row-start-8'>
+                    <div className='lg:row-span-4 lg:col-start-2 lg:row-start-8'>
                         <AnimatePresence initial={false}>
                             {visibleSection === "recently" && (
                                 <motion.div
@@ -135,7 +171,7 @@ const About: React.FC = () => {
                                         duration: 0.5,
                                     }}
                                     exit={{ height: 0, opacity: 0 }}
-                                    className='bg-white rounded-md p-4 items-center'>
+                                    className='bg-white p-4 items-center'>
                                     <p>
                                         As for many, my life changed during the
                                         Covid era. I started working remotely,
@@ -153,7 +189,7 @@ const About: React.FC = () => {
                             )}
                         </AnimatePresence>
                     </div>
-                    <div className='md:row-span-9 md:col-start-3 md:row-start-3'>
+                    <div className='lg:row-span-9 lg:col-start-3 lg:row-start-3'>
                         <AnimatePresence initial={false}>
                             {visibleSection === "softSkills" && (
                                 <motion.div

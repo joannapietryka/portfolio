@@ -3,29 +3,31 @@ import { motion } from "framer-motion";
 
 const Contact: React.FC = () => {
     return (
-        <motion.section id='contact' className='md:justify-center relative'>
-            <motion.div
-                className='bg-orange absolute '
-                initial={{
-                    width: "30px",
-                    height: "30px",
-                    borderRadius: "50%",
-                    top: 0,
-                    right: "50%",
-                }}
-                whileInView={{
-                    width: "100vh",
-                    height: "100vh",
-                    top: "-50%",
-                    transform: "translateX(50%)",
-                }}
-                transition={{ duration: 4, delay: 2 }}></motion.div>
-            <div className='items-center relative z-10 w-full'>
-                <div className='self-end'>
-                    <h2 className='text-white text-[5vw]'>
+        <motion.section
+            id='contact'
+            className='lg:justify-center relative lg:mb-10'>
+            <div className='items-center relative z-10 w-[90vw] lg:w-full'>
+                <motion.div
+                    className='bg-light-orange absolute'
+                    initial={{
+                        width: "30px",
+                        height: "30px",
+                        borderRadius: "50%",
+                        top: 0,
+                        right: "50%",
+                    }}
+                    whileInView={{
+                        width: "120vh",
+                        height: "120vh",
+                        top: "-75%",
+                        transform: "translateX(50%)",
+                    }}
+                    transition={{ duration: 4, delay: 2 }}></motion.div>
+                <div className='self-end z-10'>
+                    <h2 className='text-white text-[15vw] leading-[1] lg:text-[5vw]'>
                         Let's work together
                     </h2>
-                    <p className='text-white'>Drop me a message</p>
+                    <p className='text-white pt-10'>Drop me a message</p>
                 </div>
                 <ContactForm />
             </div>

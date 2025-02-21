@@ -2,42 +2,55 @@ import { useState } from "react";
 import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 import { COLORS } from "../../config/globals";
-
-const links = ["hello", "about", "work", "contact"];
+import { useAtomValue } from "jotai";
+import { inViewport } from "../../style/atoms";
+import useMobile from "../../hooks/useMobile";
+import Button from "../ui/Button";
 
 const Header: React.FC = () => {
+    const links: string[] = ["hello", "about", "work", "contact"];
     const [showNav, setShowNav] = useState(false);
-
+    const isInViewport = useAtomValue(inViewport);
+    const isMobile = useMobile();
     const gridLength = links.length;
 
-    const linksMap = links.map((link, index) => (
-        <div className='grid justify-center cursor-pointer' key={index}>
-            <Link
-                activeClass='active'
-                to={link}
-                spy={true}
-                smooth={true}
-                offset={-80}
-                duration={500}
-                onClick={() => setShowNav(false)}>
-                {link}
-            </Link>
-        </div>
-    ));
+    const linksMap = links.map((link, index) => {
+        const isLastElement = index === links.length - 1;
+        const lastLink = links[links.length - 1];
 
-    const navClass = `grid-rows-${gridLength} md:grid-rows-none md:grid-cols-${gridLength}`;
+        return (
+            <div className='grid justify-center cursor-pointer' key={index}>
+                {!isMobile && !isInViewport && isLastElement ? (
+                    <Button link={lastLink} text={lastLink} />
+                ) : (
+                    <Link
+                        activeClass='active'
+                        to={link}
+                        spy={true}
+                        smooth={true}
+                        offset={-80}
+                        duration={500}
+                        onClick={() => setShowNav(false)}>
+                        {link}
+                    </Link>
+                )}
+            </div>
+        );
+    });
+
+    const navClass = `grid-rows-${gridLength} lg:grid-rows-none lg:grid-cols-${gridLength}`;
 
     const nav = (
         <>
             <nav
-                className={`grid w-full items-center uppercase text-white text-6xl leading-[7rem] mt-10 md:text-black md:h-20 md:text-xs md:px-8 md:max-w-[80%] md:mt-0 justify-self-center ${navClass}`}>
+                className={`grid w-full items-center uppercase text-white text-6xl leading-[7rem] mt-10 lg:text-black lg:h-20 lg:text-xs lg:px-8 lg:max-w-[80%] lg:mt-0 justify-self-center ${navClass}`}>
                 {linksMap}
             </nav>
         </>
     );
     return (
         <>
-            <div className='grid md:hidden w-full relavite'>
+            <div className='grid lg:hidden w-full relavite'>
                 <motion.div
                     initial={{ backgroundColor: COLORS.orange }}
                     animate={{
@@ -81,8 +94,8 @@ const Header: React.FC = () => {
                 </AnimatePresence>
             </div>
 
-            <header className='hidden md:grid bg-white z-[100] fixed w-full top-0 left-1/2 -translate-x-1/2'>
-                <div className='w-full md:max-w-screen-2xl mx-auto'>{nav}</div>
+            <header className='hidden lg:grid bg-white z-[100] fixed w-full top-0 left-1/2 -translate-x-1/2'>
+                <div className='w-full lg:max-w-screen-2xl mx-auto'>{nav}</div>
             </header>
         </>
     );

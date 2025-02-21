@@ -12,8 +12,8 @@ const colors = [
 const Footer: React.FC = () => {
     return (
         <footer className='w-full bg-white'>
-            <div className='grid-cols-20 w-[100vw] h-min justify-self-center'>
-                {Array.from({ length: 20 }).map((_, index) => (
+            <div className='grid-cols-80 w-[100vw] h-min justify-self-center'>
+                {Array.from({ length: 80 }).map((_, index) => (
                     <Shape
                         key={index}
                         color={
@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
                         }
                         position={index % 2 === 0 ? "right" : "left"}
                         flipped={index % 2 === 0 ? false : true}
-                        size='5vw'
+                        size='1.25vw'
                     />
                 ))}
             </div>

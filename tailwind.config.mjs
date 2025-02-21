@@ -1,4 +1,5 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
+import plugin from 'tailwindcss/plugin';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -18,7 +19,8 @@ export default {
         mono: ['Sanchez', ...defaultTheme.fontFamily.sans],
       },
       gridTemplateColumns: {
-        '20': 'repeat(20, minmax(0, 1fr))',
+        '40': 'repeat(40, minmax(0, 1fr))',
+        '80': 'repeat(80, minmax(0, 1fr))',
       },
       colors: {
         'light-blue': '#96bedc',
@@ -27,9 +29,6 @@ export default {
         'orange': '#fb4c1f',
         'light-pink': '#fcc6d0',
         'pink': '#D81159'
-      },
-      shapeOutside: {
-        'shape-outside' : 'circle(50%)'
       },
       // colors: {
       //   green: '#c5d4c9',
@@ -55,6 +54,14 @@ export default {
       'calc-vh-5rem': 'calc(100vh - 5rem)',
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.shape-outside-circle': {
+          'shape-outside': 'circle(50%)',
+        },
+      });
+    }),
+  ],
 }
 
