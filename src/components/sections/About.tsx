@@ -35,7 +35,7 @@ const About: React.FC = () => {
                     className={`lg:row-span-4 lg:row-start-3 bg-blue ${
                         isMobile && "order-3"
                     }`}>
-                    <div className='grid-cols-6 grid-rows-4 place-items-center w-full h-full p-3'>
+                    <div className='grid-cols-6 grid-rows-3 lg:grid-rows-4 place-items-center w-full h-full p-3'>
                         <Icons />
                     </div>
                 </div>

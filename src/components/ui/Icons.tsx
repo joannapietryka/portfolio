@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { motion, useMotionValue } from "framer-motion";
+import useMobile from "../../hooks/useMobile";
 
 import {
     AdjustmentsVerticalIcon,
@@ -28,7 +29,7 @@ import {
     ArrowTurnDownLeftIcon,
 } from "@heroicons/react/24/outline";
 
-const icons = [
+const iconsMobile = [
     AdjustmentsVerticalIcon,
     ArrowPathIcon,
     ArrowUpCircleIcon,
@@ -47,6 +48,10 @@ const icons = [
     PaperClipIcon,
     NumberedListIcon,
     LinkIcon,
+];
+
+const iconsDesktop = [
+    ...iconsMobile,
     CalculatorIcon,
     EnvelopeOpenIcon,
     ChartBarIcon,
@@ -95,6 +100,9 @@ const IconWithHoverEffect: React.FC<{ children: ReactNode }> = ({
 };
 
 const Icons: React.FC = () => {
+    const isMobile = useMobile();
+    const icons = isMobile ? iconsMobile : iconsDesktop;
+
     return (
         <>
             {icons.map((IconComponent, index) => (
