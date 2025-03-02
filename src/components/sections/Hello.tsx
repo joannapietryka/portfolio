@@ -64,7 +64,8 @@ const Hello: React.FC = () => {
                 <div className='content-start lg:content-normal lg:mt-[10rem] lg:col-span-2 my-15 mb-20 z-10'>
                     <motion.div
                         className='w-[90%] m-auto lg:w-[80%] lg:pr-[10rem]'
-                        whileInView={{ opacity: 1 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
                         transition={{
                             duration: 0.4,
                             delay: 0.5,
