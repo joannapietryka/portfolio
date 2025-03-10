@@ -2,7 +2,7 @@ import About from "./components/sections/About";
 import Contact from "./components/sections/Contact";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
-import Hello from "./components/sections/Hello";
+import Hero from "./components/sections/Hero";
 import Work from "./components/sections/Work";
 import { useEffect } from "react";
 
@@ -24,7 +24,7 @@ Motion for React`,
     return (
         <>
             <Header />
-            <Hello />
+            <Hero />
             <About />
             <Work />
             <Contact />

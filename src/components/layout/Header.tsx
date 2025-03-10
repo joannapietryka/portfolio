@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 import { COLORS } from "../../config/globals";
@@ -8,12 +8,18 @@ import useMobile from "../../hooks/useMobile";
 import Button from "../ui/Button";
 
 const Header: React.FC = () => {
-    const links: string[] = ["hello", "about", "work", "contact"];
     const [showNav, setShowNav] = useState(false);
+    useEffect(() => {
+        return showNav
+            ? document.body.classList.add("overflow-hidden")
+            : document.body.classList.remove("overflow-hidden");
+    }, [showNav]);
+
     const isInViewport = useAtomValue(inViewport);
     const isMobile = useMobile();
-    const gridLength = links.length;
 
+    const links: string[] = ["hello", "about", "work", "contact"];
+    const gridLength = links.length;
     const linksMap = links.map((link, index) => {
         const isLastElement = index === links.length - 1;
         const lastLink = links[links.length - 1];

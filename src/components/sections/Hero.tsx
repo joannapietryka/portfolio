@@ -32,8 +32,8 @@ const Hello: React.FC = () => {
                         />
                     </div>
                 </div>
-                <div className='hidden lg:grid justify-start relative'>
-                    <div className='lg:grid-cols-3 lg:grid-rows-4 lg:h-[55vh] xl:h-[75vh]'>
+                <div className='hidden lg:grid justify-end items-center relative'>
+                    <div className='lg:grid-cols-3 lg:grid-rows-4 lg:h-[min(85%,450px)] xl:h-[min(85%,600px)] 2xl:h-[min(70%,700px)] 2xl:mb-20'>
                         <Shape color='light-pink' position='right' />
                         <Shape
                             color='light-blue'
@@ -63,7 +63,7 @@ const Hello: React.FC = () => {
                 </div>
                 <div className='content-start lg:content-normal lg:mt-[10rem] lg:col-span-2 my-15 mb-20 z-10'>
                     <motion.div
-                        className='w-[90%] m-auto lg:w-[80%] lg:pr-[10rem]'
+                        className='w-[90%] m-auto lg:w-[70%] xl:w-[80%] xl:pr-[3rem] 2xl:pr-[10rem]'
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{

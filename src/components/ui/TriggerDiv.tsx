@@ -18,12 +18,12 @@ const TriggerDiv: React.FC<TriggerDivInterface> = ({
     handleSetVisibility,
 }) => {
     const heading = formatSectionHeading(sectionId);
+    const classesString = `bg-white p-4 ${classes} ${
+        isMobile && `order-${order}`
+    }`;
 
     return (
-        <div
-            className={`bg-white p-4 ${classes} ${
-                isMobile && `order-${order}`
-            }`}>
+        <div className={classesString}>
             <div
                 className='place-items-center grid-flow-col justify-center cursor-pointer'
                 onClick={() => handleSetVisibility(sectionId)}>
