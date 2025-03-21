@@ -5,6 +5,7 @@ import {
 import { SectionId } from "../../config/types";
 import { formatSectionHeading } from "../../config/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import FadeIn from "./FadeIn";
 
 interface AnimatedDivInterface {
     sectionId: SectionId;
@@ -41,21 +42,22 @@ const AnimatedDiv: React.FC<AnimatedDivInterface> = ({
             }}
             className={classesString}
             style={isMobile ? { order } : undefined}>
-            <div
-                className={`${
-                    isVisible ? "place-items-start" : "place-items-center"
-                } grid-flow-col justify-center cursor-pointer flex`}
-                onClick={() => {
-                    handleSetVisibility(sectionId);
-                }}>
-                <h3 className='first-letter:uppercase'>{heading}</h3>
-                {isVisible ? (
-                    <ChevronDoubleUpIcon className='h-6 w-6 ml-2' />
-                ) : (
-                    <ChevronDoubleDownIcon className='h-6 w-6 ml-2 animate-pulse' />
-                )}
-            </div>
-
+            <FadeIn>
+                <div
+                    className={`${
+                        isVisible ? "place-items-start" : "place-items-center"
+                    } grid-flow-col justify-center cursor-pointer flex`}
+                    onClick={() => {
+                        handleSetVisibility(sectionId);
+                    }}>
+                    <h3 className='first-letter:uppercase'>{heading}</h3>
+                    {isVisible ? (
+                        <ChevronDoubleUpIcon className='h-6 w-6 ml-2' />
+                    ) : (
+                        <ChevronDoubleDownIcon className='h-6 w-6 ml-2 animate-pulse' />
+                    )}
+                </div>
+            </FadeIn>
             <AnimatePresence>
                 {isVisible && (
                     <motion.div

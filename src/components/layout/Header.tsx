@@ -6,6 +6,7 @@ import { useAtomValue } from "jotai";
 import { inViewport } from "../../style/atoms";
 import useMobile from "../../hooks/useMobile";
 import Button from "../ui/Button";
+import FadeIn from "../ui/FadeIn";
 
 const Header: React.FC = () => {
     const [showNav, setShowNav] = useState(false);
@@ -101,7 +102,11 @@ const Header: React.FC = () => {
             </div>
 
             <header className='hidden lg:grid bg-white z-[100] fixed w-full top-0 left-1/2 -translate-x-1/2'>
-                <div className='w-full lg:max-w-screen-2xl mx-auto'>{nav}</div>
+                <FadeIn delay={0.6}>
+                    <div className='w-full lg:max-w-screen-2xl mx-auto'>
+                        {nav}
+                    </div>
+                </FadeIn>
             </header>
         </>
     );

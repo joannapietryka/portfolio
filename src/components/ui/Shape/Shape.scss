@@ -1,4 +1,4 @@
-@import '/src/style/variables';
+@use '/src/style/variables' as *;
 
 $default-shape-dim: 100%;
 $default-inherit-bg: $white;

@@ -7,6 +7,7 @@ import { COLORS } from "../../config/globals";
 import useMobile from "../../hooks/useMobile";
 import { SectionId } from "../../config/types";
 import AnimatedDiv from "../ui/AnimatedDiv";
+import FadeIn from "../ui/FadeIn";
 
 const About: React.FC = () => {
     const isMobile = useMobile();
@@ -27,18 +28,24 @@ const About: React.FC = () => {
             className='justify-strech'>
             <div className='w-full p-3 relative lg:grid-cols-3 lg:first-line lg:grid-rows-11 gap-4 lg:grid-flow-row lg:auto-rows-min'>
                 <div className='text-center lg:col-span-3 lg:row-span-2'>
-                    <motion.h2 className='text-[16vw] text-white'>
-                        about me
-                    </motion.h2>
+                    <FadeIn>
+                        <h2 className='text-[16vw] text-white'>about me</h2>
+                    </FadeIn>
                 </div>
+
                 <div
-                    className={`lg:row-span-4 lg:row-start-3 bg-blue ${
+                    className={`lg:row-span-4 lg:row-start-3 ${
                         isMobile && "order-3"
                     }`}>
-                    <div className='grid-cols-6 grid-rows-3 lg:grid-rows-4 place-items-center w-full h-full p-3'>
-                        <Icons />
-                    </div>
+                    <FadeIn delay={0.3} from='top'>
+                        <div className='bg-blue'>
+                            <div className='grid-cols-6 grid-rows-3 lg:grid-rows-4 place-items-center w-full h-full p-3'>
+                                <Icons />
+                            </div>
+                        </div>
+                    </FadeIn>
                 </div>
+
                 <motion.div
                     initial={{ y: 0 }}
                     animate={{
@@ -48,31 +55,36 @@ const About: React.FC = () => {
                         duration: 0.33,
                         ease: "linear",
                     }}
-                    className={`lg:row-span-5 lg:row-start-4 bg-white place-items-center relative rounded-tr-[75px] overflow-hidden ${
+                    className={`lg:row-span-5 lg:row-start-4  ${
                         isMobile && "order-1"
                     }`}>
-                    <div className='grid-flow-col h-full'>
-                        <div className='p-5 z-10 items-end'>
-                            <h3>Welcome!</h3>
-                            <p className='text-xl self-end w-[140%]'>
-                                Thanks for finding a moment to read a few words
-                                about me. As a professional, I created this
-                                website mainly to present my frontend skills but
-                                also my personal story and areas of interest.
-                            </p>
+                    <FadeIn delay={0.3} from='right'>
+                        <div className='bg-white place-items-center relative rounded-tr-[75px] overflow-hidden'>
+                            <div className='grid-flow-col h-full'>
+                                <div className='p-5 z-10 items-end'>
+                                    <h3>Welcome!</h3>
+                                    <p className='text-xl self-end w-[140%]'>
+                                        Thanks for finding a moment to read a
+                                        few words about me. As a professional, I
+                                        created this website mainly to present
+                                        my frontend skills but also my personal
+                                        story and areas of interest.
+                                    </p>
+                                </div>
+                                <div
+                                    className={`grid-cols-1 h-min relative top-0 right-0 z-0 shape-outside-circle ${
+                                        isMobile ? "w-[100px]" : "w-[150px]"
+                                    }`}>
+                                    <Shape
+                                        color='light-pink'
+                                        position='bottom'
+                                        flipped={true}
+                                        size={isMobile ? "100px" : "150px"}
+                                    />
+                                </div>
+                            </div>
                         </div>
-                        <div
-                            className={`grid-cols-1 h-min relative top-0 right-0 z-0 shape-outside-circle ${
-                                isMobile ? "w-[100px]" : "w-[150px]"
-                            }`}>
-                            <Shape
-                                color='light-pink'
-                                position='bottom'
-                                flipped={true}
-                                size={isMobile ? "100px" : "150px"}
-                            />
-                        </div>
-                    </div>
+                    </FadeIn>
                 </motion.div>
                 <AnimatedDiv
                     sectionId='soft-skills'
@@ -153,16 +165,24 @@ const About: React.FC = () => {
                     visibleSection={visibleSection}
                 />
                 <div
-                    className={`bg-light-blue items-end lg:row-span-7 lg:col-start-3 lg:row-start-5 ${
+                    className={` lg:row-span-7 lg:col-start-3 lg:row-start-5 ${
                         isMobile && "order-6"
                     }`}>
-                    <img
-                        className='cover'
-                        src={profile}
-                        alt='Joanna Pietryka picture'
-                    />
+                    <FadeIn delay={0.4}>
+                        <div className='bg-light-blue items-end'>
+                            <img
+                                className='cover'
+                                src={profile}
+                                alt='Joanna Pietryka picture'
+                            />
+                        </div>
+                    </FadeIn>
                 </div>
-                <div className='bg-shapes bg-cover place-items-center lg:row-span-3 lg:row-start-9'></div>
+                <div className='lg:row-span-3 lg:row-start-9'>
+                    <FadeIn delay={0.4}>
+                        <div className='bg-shapes bg-cover place-items-center'></div>
+                    </FadeIn>
+                </div>
             </div>
         </motion.section>
     );

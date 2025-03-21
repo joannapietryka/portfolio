@@ -1,7 +1,5 @@
 import "./Shape.scss";
 import { useRef } from "react";
-import { motion } from "framer-motion";
-
 interface ShapeProps {
     color:
         | "light-blue"
@@ -32,17 +30,14 @@ const Shape: React.FC<ShapeProps> = ({
     const ref = useRef(null);
     const bg = imgString ? `bg-${imgString}` : "";
 
-    // const x = useSpring(0, { stiffness: 100, damping: 20, mass: 2 });
-
     return (
-        <motion.div
+        <div
             ref={ref}
             className={`shape-container aspect-square background-${color} position-${position} ${
                 flipped ? "fliped" : ""
             } ${zIndex ? `z-${zIndex}` : ""} `}
             style={
                 {
-                    // transform: `translateX(${x.get()}px)`,
                     "--shape-dim": size,
                     "--inherit-bg": sectionColor,
                 } as React.CSSProperties
@@ -61,7 +56,7 @@ const Shape: React.FC<ShapeProps> = ({
                 )}
             </div>
             <div className='shape-curved'></div>
-        </motion.div>
+        </div>
     );
 };
 

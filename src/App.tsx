@@ -5,6 +5,7 @@ import Header from "./components/layout/Header";
 import Hero from "./components/sections/Hero";
 import Work from "./components/sections/Work";
 import { useEffect } from "react";
+import SmoothScroll from "./components/ui/SmoothScroll";
 
 const App: React.FC = () => {
     useEffect(() => {
@@ -23,6 +24,7 @@ Motion for React`,
     }, []);
     return (
         <>
+            <SmoothScroll />
             <Header />
             <Hero />
             <About />
