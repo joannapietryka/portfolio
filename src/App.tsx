@@ -14,10 +14,12 @@ const App: React.FC = () => {
 %cVite, 
 React, 
 TS, 
-Tailwind,
+Tailwind CSS,
 React Hook Form, 
+React-testing-library,
 emailjs, 
-Motion for React`,
+Motion for React,
+Lenis`,
             "font-size: 1rem; color: violet",
             "font-size: 0.7rem; color: lightblue;"
         );

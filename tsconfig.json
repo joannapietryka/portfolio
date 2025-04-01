@@ -1,7 +1,12 @@
 {
+  "compilerOptions": {
+    "types": ["vitest/globals"],
+    "composite": true
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+    { "path": "./tsconfig.node.json" },
+    { "path": "./tsconfig.vitest.json" } 
   ]
 }

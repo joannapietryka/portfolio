@@ -5,7 +5,8 @@ const Contact: React.FC = () => {
     return (
         <motion.section
             id='contact'
-            className='lg:justify-center relative lg:mb-10'>
+            className='lg:justify-center relative lg:mb-10'
+            data-testid='contact'>
             <div className='items-center relative z-10 w-[90vw] lg:w-full'>
                 <motion.div
                     className='bg-light-orange absolute'

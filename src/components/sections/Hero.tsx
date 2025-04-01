@@ -6,15 +6,18 @@ import { inViewport } from "../../style/atoms";
 import { useSetAtom } from "jotai";
 import FadeIn from "../ui/FadeIn";
 
-const Hello: React.FC = () => {
+const Hero: React.FC = () => {
     const isMobile = useMobile();
 
     const setIsInViewport = useSetAtom(inViewport);
 
     return (
-        <section id='hello' className='mt-10 lg:mt-20'>
+        <section id='hello' className='mt-10 lg:mt-20' data-testid='hello'>
             <div className='w-full lg:grid-cols-3'>
-                <div className='lg:hidden justify-center'>
+                <div
+                    className='justify-center'
+                    data-testid='mobile'
+                    style={{ display: isMobile ? "grid" : "none" }}>
                     <FadeIn>
                         <div className='grid-cols-2 grid-rows-2 h-[40vh] aspect-square'>
                             <Shape color='pink' position='bottom' />
@@ -28,7 +31,9 @@ const Hello: React.FC = () => {
                         </div>
                     </FadeIn>
                 </div>
-                <div className='hidden lg:grid'>
+                <div
+                    style={{ display: isMobile ? "none" : "grid" }}
+                    data-testid='desktop'>
                     <FadeIn from='left' delay={0.3}>
                         <div className='justify-end items-center relative'>
                             <div className='lg:grid-cols-3 lg:grid-rows-4 lg:h-[min(85%,450px)] xl:h-[min(85%,600px)] 2xl:h-[min(70%,700px)] 2xl:mb-20'>
@@ -105,4 +110,4 @@ const Hello: React.FC = () => {
     );
 };
 
-export default Hello;
+export default Hero;

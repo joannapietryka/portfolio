@@ -25,7 +25,8 @@ const About: React.FC = () => {
             whileInView={{ background: COLORS.pink }}
             transition={{ duration: 4, delay: 2 }}
             id='about'
-            className='justify-strech'>
+            className='justify-strech'
+            data-testid='about'>
             <div className='w-full p-3 relative lg:grid-cols-3 lg:first-line lg:grid-rows-11 gap-4 lg:grid-flow-row lg:auto-rows-min'>
                 <div className='text-center lg:col-span-3 lg:row-span-2'>
                     <FadeIn>
