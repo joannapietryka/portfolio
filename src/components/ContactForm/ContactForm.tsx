@@ -185,7 +185,7 @@ const ContactForm: React.FC = () => {
                     </FadeIn>
                 </div>
 
-                <div className='lg:row-start-4 lg:col-start-4 pt-3'>
+                <div className='lg:row-start-4 lg:col-start-4 pt-3 mb-10'>
                     <FadeIn delay={isMobile ? 0.8 : 0.6}>
                         <div>
                             <Button
