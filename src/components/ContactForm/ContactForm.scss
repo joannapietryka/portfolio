@@ -1,0 +1,29 @@
+#contact-form {
+    label {
+        @apply grid text-xs font-light
+    }
+
+    .input-wrapper {
+        @apply w-full my-4 relative;
+
+        input {
+            @apply grid w-full bg-white px-3 py-4 lg:py-1.5 mb-2 text-base text-gray-900 border-b-2 border-b-orange placeholder:text-gray-300  focus:border-b-light-orange focus:outline-none lg:text-sm/6 appearance-none;
+
+            &[data-autocompleted]{
+                background-color: transparent !important;
+            }
+        }
+    }
+
+    .textarea-wrapper {
+        @apply grid my-4 relative;
+
+        textarea {
+            @apply grid w-full px-3 py-1.5 mb-2 text-base text-gray-900 border-b-2 border-b-orange placeholder:text-gray-300  focus:border-b-light-orange focus:outline-none  lg:text-sm/6 resize-none appearance-none
+        }
+    }
+
+    .error {
+        @apply text-xs text-pink min-h-[1rem] absolute -bottom-3
+    }
+}

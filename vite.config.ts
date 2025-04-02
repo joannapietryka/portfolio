@@ -5,6 +5,7 @@ import autoprefixer from 'autoprefixer';
 import { fileURLToPath } from 'url';
 import path from 'path';
 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -13,6 +14,11 @@ export default defineConfig({
   css: {
     postcss: {
       plugins: [tailwindcss, autoprefixer],
+    },
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+      },
     },
   },
   resolve: {
