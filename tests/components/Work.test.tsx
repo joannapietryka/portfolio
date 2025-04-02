@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
+import React from "react";
 import Work from "../../src/components/sections/Work";
 
 describe("Work Component", () => {

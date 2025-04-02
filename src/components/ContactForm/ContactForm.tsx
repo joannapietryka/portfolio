@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
-import "./ContectForm.scss";
+import "./ContactForm.scss";
 import Button from "../ui/Button";
 import FadeIn from "../ui/FadeIn";
 import useMobile from "../../hooks/useMobile";

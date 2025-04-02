@@ -1,9 +1,8 @@
 {
-    "extends": "./tsconfig.app.json",
-    "compilerOptions": {
-      "types": ["vitest/globals", "node"],
-      "noEmit": true
-    },
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "types": ["vite/client", "vitest/globals"]
+  },
     "include": [
       "**/*.test.ts",
       "**/*.test.tsx",

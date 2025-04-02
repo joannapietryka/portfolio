@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
 // import userEvent from "@testing-library/user-event";
+import React from "react";
 import About from "../../src/components/sections/About";
 
 // vi.mock("../../src/hooks/useMobile", () => ({

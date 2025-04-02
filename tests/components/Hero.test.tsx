@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
+import React from "react";
 import Hero from "../../src/components/sections/Hero";
 import useMobile from "../../src/hooks/useMobile";
 

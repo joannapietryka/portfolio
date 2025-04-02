@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
+import React from "react";
 import Contact from "../../src/components/sections/Contact";
 
 describe("Contact Component", () => {
